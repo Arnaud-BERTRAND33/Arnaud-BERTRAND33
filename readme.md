@@ -1,4 +1,4 @@
-![cover](https://github.com/Arnaud-BERTRAND33/Arnaud-BERTRAND33/blob/main/Cover.gif)
+<img src="https://github.com/Arnaud-BERTRAND33/Arnaud-BERTRAND33/blob/main/Cover.gif" alt="gifcover" width="200" height="300"/>
 
 <p align="center">
   <img src="https://github-readme-stats.vercel.app/api?username=Arnaud-BERTRAND33&show_icons=true&theme=graywhite" alt="Github Stats" />
