@@ -29,4 +29,5 @@ fx = FauxFournisseur(journal)
 fx.nom = 'codex'
 app = Application.demarrer(Config.pour_tests(racine), fournisseur=fx,
                            protecteur=ProtecteurFactice())
+app.comptes_ia = lambda: {'codex': {'disponible': True, 'connecte': True}, 'claude': {'disponible': True, 'connecte': False}, 'actif': app.reglages.fournisseur}
 uvicorn.run(creer_api(app, jeton="dev", dossier_ui=None), host="127.0.0.1", port=8765, log_level="warning")

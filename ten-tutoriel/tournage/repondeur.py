@@ -62,6 +62,29 @@ def repondre(texte: str) -> str:
     gerant = autres[0] if autres else "le gérant"
     caution = autres[1] if len(autres) > 1 else "la caution"
 
+    # --- Devis ---------------------------------------------------------------------------
+    if "devis" in bas:
+        contenu = "\n".join([
+            "# Proposition d'honoraires",
+            f"Client : {client}",
+            f"Objet : procédure de référé contre {adverse} (constat de la clause résolutoire, expulsion, provision) et mise en demeure de la caution.",
+            "## Prestations",
+            "- Analyse du bail et du commandement de payer",
+            "- Rédaction et délivrance de l'assignation en référé",
+            "- Audience devant le président du tribunal judiciaire",
+            "- Mise en demeure de la caution et suivi de l'exécution",
+            "## Honoraires",
+            "Forfait : 2 500 euros HT, soit 3 000 euros TTC (TVA 20 %).",
+            "Frais de commissaire de justice refacturés au réel.",
+            "Proposition valable 30 jours.",
+        ])
+        return (
+            f"Voici la proposition d'honoraires pour {client} : forfait de 2 500 € HT (3 000 € TTC). "
+            "Je l'ai enregistrée dans l'onglet Devis & honoraires du dossier."
+            + _bloc("actions", [{"action": "creer_devis", "titre": "Devis - référé clause résolutoire",
+                                 "contenu": contenu, "montant_ht": 2500, "taux_tva": 20, "mode": "forfait"}])
+        )
+
     # --- 3. E-mail ------------------------------------------------------------------------
     if "mail" in bas:
         corps = (f"Monsieur,\n\nJe vous informe que la clause résolutoire du bail consenti à {adverse} "
